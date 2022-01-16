@@ -1,5 +1,4 @@
 # Anime Website
----
 
 <br>
 <div style="text-align:center">
@@ -92,7 +91,7 @@ Anime information is stored in a database.
 
 The connection to the database comes from the file `./config/dbConnection.js` and then importing this file from `./models/mainModel.js`.
 
-```
+```javascript
 // DB configuration
 // Parameters are taken from .env file
 const mysql = require('mysql2');
@@ -120,7 +119,7 @@ module.exports = pool;
 
 The `./models/mainModel.js` file contains methods that use the **npm** `mysql2` module to query the database and get certain information from it, in this case about all anime series contained in the database .
 
-```
+```javascript
 // Model for anime handling
 const pool = require('../config/dbConnection'); // DB config import
 const SQL_Logic = require('./SQL_Logic');
@@ -142,7 +141,7 @@ module.exports = {
 
 In order not to clutter up this file, SQL queries have been moved to a separate file `./models/SQL_Logic.js`.
 
-```
+```javascript
 exports.selectAllAnime = {
   selectAllAnime: `SELECT * FROM anime ORDER BY title;`,
   ...
@@ -151,7 +150,7 @@ exports.selectAllAnime = {
 
 Next, the file `./models/mainModel.js` is exported to the following file `./controllers/mainController.js`. This file consists of methods that are request handlers for a specific URL, in this case, the `/catalog` address will render the `allAnime` view template from the `./views/animeViews` folder to which the results of this method are passed. The **Handlebars** template engine is used to dynamically generate an HTML page.
 
-```
+```javascript
 // Controllers for main anime pages handling
 const mainModel = require('../models/mainModel');
 
@@ -176,7 +175,7 @@ module.exports = {
 
 `./views/animeViews/allAnime.hbs`
 
-```
+```hbs
 <section class="catalog_section">
   <div class="container">
     <div class="row">
@@ -208,7 +207,7 @@ module.exports = {
 
 Next, the file `./controllers/mainController.js` is exported to `./routes/indexRoutes.js`. This file is a routing methods that determines which URL to call a specific handler imported from `./controllers/mainController.js`.
 
-```
+```javascript
 // Routes for main categories
 const express = require('express');
 const router = express.Router();
@@ -226,7 +225,7 @@ module.exports = router;
 
 The file `./routes/indexRoutes.js` is exported to `./app.js`. In the `./app.js` file, the `./routes/indexRoutes.js` file is used as one of the middleware function arguments that are used to process user requests for specific URLs.
 
-```
+```javascript
 ...
 const indexRouter = require('./routes/indexRoutes');
 ...
@@ -239,7 +238,7 @@ module.exports = app;
 
 The file `./app.js` is exported to `./bin/www.js`. The `./bin/www.js` file starts the server.
 
-```
+```javascript
 ...
 const app = require('../app');
 ...
@@ -261,7 +260,7 @@ The registration logic is similar to the logic described in the previous paragra
 
 `./usersAPI/usersControllers.js`
 
-```
+```javascript
 // Controllers for users crud and registration handling
 const bcrypt = require('bcrypt');
 
@@ -302,7 +301,7 @@ Authentication is based on **JSON Web Token**.
 
 The **accessToken** and **refreshToken** configuration is in the `./config/tokenConfig.js` file.
 
-```
+```javascript
 // JWT tokens configuration for authorization and authentication
 const jwt = require('jsonwebtoken');
 require('dotenv').config()
@@ -322,7 +321,7 @@ module.exports = {
 
 The logic of building authentication is similar to the previous paragraphs. The main features are in the controller `./usersAPI/usersControllers.js`, in the login method of the site. The `loginPost` method checks if the entered user data matches the data in the database. If the entered data is correct, the user is assigned **accessToken** and **refreshToken** which are stored in the cookie and the database, respectively.
 
-```
+```javascript
 ...
 // Method renders the users login page (get method)
   loginGet: (req, res) => {
@@ -368,7 +367,7 @@ When a user performs actions on certain URLs, the application uses JWT to verify
 
 `./usersAPI/userRoutes.js`
 
-```
+```javascript
 ...
 router.get('/info/:user_id', userAuth.checkToken, usersController.readUser);
 ...
@@ -376,7 +375,7 @@ router.get('/info/:user_id', userAuth.checkToken, usersController.readUser);
 
 Authentication check handling happens in `./usersAPI/userAuth.js` file. The `checkToken` method checks the **accessToken** sent by the user for a match using the secret key, if the check was successful, then the `next()` function is called to transfer the request processing to the next middleware, if the check failed due to the expiration of the token or for other reasons, the **refreshToken** is checked and a new **accessToken** is returned if the check succeeds.
 
-```
+```javascript
 // Methods for user authentication and admin authorization
 const jwt = require('jsonwebtoken');
 
@@ -441,7 +440,7 @@ module.exports = {
 
 The following method is used to authorize an administrator:
 
-```
+```javascript
 ...
 // Method used to authorize the administrator in the admin panel
   isAdmin: (req, res, next) => {
@@ -470,7 +469,7 @@ The method checks if the "role" - "admin" of the user matches and, if successful
 
 `./admin/adminRoutes.js`
 
-```
+```javascript
 // Routes for admin api
 const express = require('express');
 const router = express.Router();
@@ -484,3 +483,13 @@ const userAuth = require('../usersAPI/userAuth');
 router.get('/', userAuth.checkToken, userAuth.isAdmin, adminController.adminPanel);
 ...
 ```
+
+## Run application
+
+Clone the repository with `git clone` to run application.
+
+Next, you must create a database, or export the database used in this project in the file `/DB_backup/Backup/AnimeSiteDB_Backup.sql`. To connect to the database, as well as to set a JWT, environment variables are used, you can define them in the `.env` file or set these parameters directly.
+
+Use the `npm init` command to download all packages and modules.
+
+The server is started with the `npm start` or `npm devstart` command.

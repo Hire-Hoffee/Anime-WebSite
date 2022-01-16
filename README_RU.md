@@ -1,5 +1,4 @@
 # Аниме веб-сайт
----
 
 <br>
 <div style="text-align:center">
@@ -92,7 +91,7 @@
 
 Подключение к базе данных происходит из файла `./config/dbConnection.js` и последующим импортом этого файла из `./models/mainModel.js`.
 
-```
+```javascript
 // DB configuration
 // Parameters are taken from .env file
 const mysql = require('mysql2');
@@ -120,7 +119,7 @@ module.exports = pool;
 
 Файл `./models/mainModel.js` представляет из себя методы, которые используют модуль **npm** `mysql2` для выполнения запросов к базе данных и получение из неё определенной информации, в данном случае о всех аниме сериалах содержащихся в базе данных.
 
-```
+```javascript
 // Model for anime handling
 const pool = require('../config/dbConnection'); // DB config import 
 const SQL_Logic = require('./SQL_Logic');
@@ -142,7 +141,7 @@ module.exports = {
 
 Для того чтобы не загромождать этот файл, SQL - запросы были вынесены в отдельный файл `./models/SQL_Logic.js`.
 
-```
+```javascript
 exports.selectAllAnime = {
   selectAllAnime: `SELECT * FROM anime ORDER BY title;`,
   ...
@@ -151,7 +150,7 @@ exports.selectAllAnime = {
 
 Далее файл `./models/mainModel.js` экспортируется в следующий файл `./controllers/mainController.js`. Этот файл представляет из себя методы, которые являются обработчиками запросов по определённому URL - адресу, в данном случае адресу `/catalog` будет отрендерен шаблон представления `allAnime` из папки `./views/animeViews` в который передаются результаты выполнения этого метода. Для динамического генерирования HTML-страницы используется шаблонизатор **Handlebars**.
 
-```
+```javascript
 // Controllers for main anime pages handling
 const mainModel = require('../models/mainModel');
 
@@ -176,7 +175,7 @@ module.exports = {
 
 `./views/animeViews/allAnime.hbs`
 
-```
+```hbs
 <section class="catalog_section">
   <div class="container">
     <div class="row">
@@ -208,7 +207,7 @@ module.exports = {
 
 Далее файл `./controllers/mainController.js` экспортируется в `./routes/indexRoutes.js`. Этот файл представляет из себя методы маршрутизации, которые определяют по какому URL - адресу вызывать определенный обработчик импортированный из `./controllers/mainController.js`.
 
-```
+```javascript
 // Routes for main categories
 const express = require('express');
 const router = express.Router();
@@ -226,7 +225,7 @@ module.exports = router;
 
 Файл `./routes/indexRoutes.js` экспортируется в `./app.js`. В файле `./app.js` файл `./routes/indexRoutes.js` используется в качестве одного из аргументов функции промежуточной обработки, которые используются для обработки запросов пользователей по определенным URL - адресам.
 
-```
+```javascript
 ...
 const indexRouter = require('./routes/indexRoutes');
 ...
@@ -239,7 +238,7 @@ module.exports = app;
 
 Файл `./app.js` экспортируется в `./bin/www.js`. В файле `./bin/www.js` происходит запуск сервера.
 
-```
+```javascript
 ...
 const app = require('../app');
 ...
@@ -261,7 +260,7 @@ server.on('listening', onListening);
 
 `./usersAPI/usersControllers.js`
 
-```
+```javascript
 // Controllers for users crud and registration handling
 const bcrypt = require('bcrypt');
 
@@ -302,7 +301,7 @@ module.exports = {
 
 Конфигурация **accessToken** и **refreshToken** находится в файле `./config/tokenConfig.js`.
 
-```
+```javascript
 // JWT tokens configuration for authorization and authentication
 const jwt = require('jsonwebtoken');
 require('dotenv').config()
@@ -322,7 +321,7 @@ module.exports = {
 
 Логика построения аутентификации схожа с предыдущими пунктами. Основные особенности находятся в контроллере `./usersAPI/usersControllers.js`, в методе входа на сайт. Метод `loginPost` проверяет на соответствие введенные данные пользователя с данными в базе данных. Если введенные данные верны пользователю присваиваются **accessToken** и **refreshToken** которые сохраняются в cookie и базу данных соответственно.
 
-```
+```javascript
 ...
 // Method renders the users login page (get method)
   loginGet: (req, res) => {
@@ -368,7 +367,7 @@ module.exports = {
 
 `./usersAPI/userRoutes.js`
 
-```
+```javascript
 ...
 router.get('/info/:user_id', userAuth.checkToken, usersController.readUser);
 ...
@@ -376,7 +375,7 @@ router.get('/info/:user_id', userAuth.checkToken, usersController.readUser);
 
 Обработка проверки аутентификации происходит в файле `./usersAPI/userAuth.js`. Метод `checkToken` проверяет отправленный пользователем **accessToken** на соответствие при помощи секретного ключа, если проверка прошла успешно, то вызывается функция `next()` для перехода обработки запроса следующему middleware, если проверка провалилась из - за истечения срока действия токена или других причин, то происходит проверка **refreshToken** и выдача нового **accessToken** в случае удачной проверки.
 
-```
+```javascript
 // Methods for user authentication and admin authorization
 const jwt = require('jsonwebtoken');
 
@@ -441,7 +440,7 @@ module.exports = {
 
 Для авторизации администратора используется следующий метод:
 
-```
+```javascript
 ...
 // Method used to authorize the administrator in the admin panel
   isAdmin: (req, res, next) => {
@@ -470,7 +469,7 @@ module.exports = {
 
 `./admin/adminRoutes.js`
 
-```
+```javascript
 // Routes for admin api
 const express = require('express');
 const router = express.Router();
@@ -484,3 +483,13 @@ const userAuth = require('../usersAPI/userAuth');
 router.get('/', userAuth.checkToken, userAuth.isAdmin, adminController.adminPanel);
 ...
 ```
+
+## Запуск приложения
+
+Для того чтобы запустить приложение клонируйте репозиторий при помощи `git clone`. 
+
+Далее вы должны создать базу данных, либо экспортировать базу данных использованную в этом проекте в файле `/DB_backup/Backup/AnimeSiteDB_Backup.sql`. Для подключения к БД как и для формирования JWT используются переменные окружения, вы можете определить их в файле `.env` или задать эти параметры напрямую.
+
+Для загрузки всех пакетов и модулей используйте команду `npm init`.
+
+Запуск сервера происходит командой `npm start` или `npm devstart`.
