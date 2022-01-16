@@ -1,0 +1,143 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 mb-5">
+        <div class="content_block">
+          <h5 class="text-start text-uppercase mb-2 ms-3 favor_h5">Запланировано</h5>
+          <hr style="color: var(--color_3);  opacity:0.8">
+          <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 row-cols-2 g-3 favour_cards">
+            {{#if anime}}
+              {{#each anime}}
+              <div class="col">
+                <div class="card">
+                  <a href="/anime/description/{{this.anime_id}}"><img src="{{this.anime_poster}}" class="card-img-top card_img" alt="anime poster"></a>
+                  <div class="card-body card_body">
+                    <a href="/anime/description/{{this.anime_id}}"><h6 class="card-title text-center cardfont title_length">{{this.title}}</h6></a>
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            {{else}}
+              <h5>В избранном пусто :(</h5>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+
+      {{> filter}}
+
+      <div class="col-lg-9">
+        <div class="content_block">
+          <h5 class="text-start text-uppercase mb-2 ms-3 favor_h5">Просмотрено</h5>
+          <hr style="color: var(--color_3);  opacity:0.8">
+          <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 row-cols-2 g-3 favour_cards">
+            {{#if anime}}
+              {{#each anime}}
+                {{#if this.viewed}}
+                  <div class="col">
+                    <div class="card">
+                      <a href="/anime/description/{{this.anime_id}}"><img src="{{this.anime_poster}}" class="card-img-top card_img" alt="anime poster"></a>
+                      <div class="card-body card_body">
+                        <a href="/anime/description/{{this.anime_id}}"><h6 class="card-title text-center cardfont title_length">{{this.title}}</h6></a>
+                      </div>
+                    </div>
+                  </div>
+                {{/if}}
+              {{/each}}
+            {{else}}
+              <h5>В просмотренном пусто :(</h5>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<button class="btn pop_up_filter_btn hidden_pop_up" type="button" data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  <i class="bi bi-chevron-compact-left">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="var(--color_3)"
+      class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z" />
+    </svg>
+  </i>
+</button>
+
+<div class="offcanvas offcanvas-end pop_up_filter hidden_pop_up" tabindex="-1" id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Фильтр</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form method="GET" action="/main/filter/resultsFound">
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Жанр</label>
+        <select class="form-select form-select-sm filter_inf_select" name="anime_genre">
+          <option value="" selected>Выберите жанр</option>
+          <option value="Сейнен">Сейнен</option>
+          <option value="Сёнен">Сёнен</option>
+          <option value="Приключения">Приключения</option>
+          <option value="Драма">Драма</option>
+          <option value="Романтика">Романтика</option>
+          <option value="Меха">Меха</option>
+          <option value="Игры">Игры</option>
+          <option value="Исекай">Исекай</option>
+          <option value="Ужасы">Ужасы</option>
+          <option value="Комедия">Комедия</option>
+          <option value="Триллер">Триллер</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Тип аниме</label>
+        <select class="form-select form-select-sm filter_inf_select" name="anime_type">
+          <option value="" selected>Выберите тип</option>
+          <option value="Сериал">Сериал</option>
+          <option value="Полнометражный фильм">Полнометражный фильм</option>
+          <option value="OVA">OVA</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Возрастной рейтинг</label>
+        <select class="form-select form-select-sm filter_inf_select" name="age_permission">
+          <option value="" selected>Выберите возраст</option>
+          <option value="0+">0+</option>
+          <option value="13+">13+</option>
+          <option value="17+">17+</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Тип озвучки</label>
+        <select class="form-select form-select-sm filter_inf_select" name="sound_name">
+          <option value="" selected>Выберите озвучку</option>
+          <option value="Anything Group">Anything Group</option>
+          <option value="AnimDUB">AnimDUB</option>
+          <option value="Anilibria">Anilibria</option>
+          <option value="MC Entertainment">MC Entertainment</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Статус</label>
+        <select class="form-select form-select-sm filter_inf_select" name="anime_status">
+          <option value="" selected>Выберите статус</option>
+          <option value="Онгоинг">Онгоинг</option>
+          <option value="Вышло">Вышло</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Годы</label>
+        <div class="input-group">
+          <input type="text" class="form-control form-control-sm filter_form_input"
+            placeholder="От" name="date_start">
+          <input type="text" class="form-control form-control-sm" placeholder="До" name="date_end">
+        </div>
+      </div>
+
+      <button type="submit" class="btn mt-2 search_filter_btn">Искать</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="shortcut icon" href="/images/icons/favicon1.png" type="image/x-icon">
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>{{title}}</title>
+</head>
+<body class="main_body">
+
+  {{> header}}
+
+
+  <main class="main">
+    {{{body}}}
+  </main>
+
+
+  {{> footer}}
+  
+  <script src="/javascripts/bootstrap.bundle.min.js"> </script>
+  
+  <script>
+    document.querySelectorAll('.title_length').forEach((elem) => {
+      return elem.textContent.length > 15 ? elem.textContent = elem.textContent.slice(0,15) + '...' : elem.textContent = elem.textContent;
+    })
+  </script>
+  
+  <script>
+    $(document).ready(function(){
+      $('.navbar a').each(function () {
+        var location = window.location.href;
+        var link = this.href;
+        console.log(location + ' and ' + link)
+        if(location == link) {
+          $(this).addClass('active_link');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

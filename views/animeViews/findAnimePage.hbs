@@ -1,0 +1,29 @@
+<section class="catalog_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 mb-5">
+        <div class="content_block">
+          <h5 class="text-start text-uppercase mb-2 ms-3 favor_h5">Найдено:</h5>
+          <hr style="color: var(--color_3);  opacity:0.8">
+          <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 row-cols-2 g-3 favour_cards">
+            {{#if anime}}
+              {{#each anime}}
+              <div class="col">
+                <div class="card">
+                  <a href="/anime/description/{{this.anime_id}}"><img src="{{this.anime_poster}}" class="card-img-top card_img" alt="anime poster"></a>
+                  <div class="card-body card_body">
+                    <a href="/anime/description/{{this.anime_id}}"><h6 class="card-title text-center cardfont title_length">{{this.title}}</h6></a>
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            {{else}}
+              <h5>Ничего не найдено :(</h5>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      {{> filter}}
+    </div>
+  </div>
+</section>

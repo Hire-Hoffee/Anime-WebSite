@@ -1,0 +1,53 @@
+
+<div class="container d-flex justify-content-center">
+  <div class="content_block_user_create">
+    <div class="row">
+      <div class="col-12">
+        <h5 class="text-start text-uppercase">Регистрация</h5><hr style="color: var(--color_3);  opacity:0.8">
+      </div>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+      <div class="row mb-3">
+        <div class="col-12">
+          <label class="form-label">Электронная почта</label>
+          <input class="form-control" name="user_email" type="email" maxlength="100" required>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12">
+          <label class="form-label">Имя пользователя</label>
+          <input class="form-control" name="user_name" maxlength="45" required>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12">
+          <label class="form-label">Пароль</label>
+          <input class="form-control" type="password" name="user_password" maxlength="20" required>
+        </div>
+      </div>
+      <div class="row mb-3 justify-content-md-center">
+        <div class="col-5">
+          <label class="form-label">Пол</label>
+          <select class="form-select" name="user_sex">
+            <option selected disabled>Ваш пол</option>
+            <option value="муж">Мужской</option>
+            <option value="жен">Женский</option>
+          </select>
+        </div>
+        <div class="col-5">
+          <label class="form-label">Возраст</label>
+          <input class="form-control" name="user_age" type="number" required>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12">
+          <label class="form-label">Аватарка</label>
+          <input class="form-control" name="userAvatar" type="file">
+        </div>
+      </div>
+        <div class="row">
+          <button class="btn create_user_btn" type="submit">Создать аккаунт</button>
+        </div>
+    </form>
+  </div>
+</div>

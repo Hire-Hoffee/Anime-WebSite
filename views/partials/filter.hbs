@@ -1,0 +1,71 @@
+<div class="col-lg-3 ms-md-auto hidden_filter">
+  <div class="content_block block_color">
+    <h5 class="text-start text-uppercase mb-2 ms-3">Фильтр</h5>
+    <hr style="color: var(--color_3);  opacity:0.8">
+    <form method="GET" action="/main/filter/resultsFound">
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Жанр</label>
+        <select class="form-select form-select-sm filter_inf_select" name="anime_genre">
+          <option value="" selected>Выберите жанр</option>
+          <option value="Сейнен">Сейнен</option>
+          <option value="Сёнен">Сёнен</option>
+          <option value="Приключения">Приключения</option>
+          <option value="Драма">Драма</option>
+          <option value="Романтика">Романтика</option>
+          <option value="Меха">Меха</option>
+          <option value="Игры">Игры</option>
+          <option value="Исекай">Исекай</option>
+          <option value="Ужасы">Ужасы</option>
+          <option value="Комедия">Комедия</option>
+          <option value="Триллер">Триллер</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Тип аниме</label>
+        <select class="form-select form-select-sm filter_inf_select" name="anime_type">
+          <option value="" selected>Выберите тип</option>
+          <option value="Сериал">Сериал</option>
+          <option value="Полнометражный фильм">Полнометражный фильм</option>
+          <option value="OVA">OVA</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Возрастной рейтинг</label>
+        <select class="form-select form-select-sm filter_inf_select" name="age_permission">
+          <option value="" selected>Выберите возраст</option>
+          <option value="0+">0+</option>
+          <option value="13+">13+</option>
+          <option value="17+">17+</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Тип озвучки</label>
+        <select class="form-select form-select-sm filter_inf_select" name="sound_name">
+          <option value="" selected>Выберите озвучку</option>
+          <option value="Anything Group">Anything Group</option>
+          <option value="AnimDUB">AnimDUB</option>
+          <option value="Anilibria">Anilibria</option>
+          <option value="MC Entertainment">MC Entertainment</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Статус</label>
+        <select class="form-select form-select-sm filter_inf_select" name="anime_status">
+          <option value="" selected>Выберите статус</option>
+          <option value="Онгоинг">Онгоинг</option>
+          <option value="Вышло">Вышло</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Годы</label>
+        <div class="input-group">
+          <input type="text" class="form-control form-control-sm filter_form_input"
+            placeholder="От" name="date_start">
+          <input type="text" class="form-control form-control-sm" placeholder="До" name="date_end">
+        </div>
+      </div>
+
+      <button type="submit" class="btn mt-2 search_filter_btn">Искать</button>
+    </form>
+  </div>
+</div>

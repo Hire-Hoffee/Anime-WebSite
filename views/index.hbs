@@ -1,0 +1,436 @@
+{{!-- ------------------------------ CAROUSEL ------------------------------ --}}
+
+<section class="pb-5 pt-5">
+  <div class="container-fluid carousel_container">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-12">
+          <h4 class="text-end text-uppercase whatseasonH4">Аниме сезона</h4> <hr style="color: var(--color_3);  opacity:0.8">
+        </div>
+      </div>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    
+        <div class="row">
+          <div class="col-1 hidden_btn">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+          </div>
+    
+          <div class="col-lg-10 col-12">
+            <div class="carousel-inner">
+  
+              <div class="carousel-item active">
+                <div class="row main_row">
+                  <div class="col-sm-3 col-6 row_item">
+                    <div class="card row_item_card">
+                      <a href="/anime/description/{{seasonAnime.0.anime_id}}">
+                        <img src="{{seasonAnime.0.anime_poster}}" class="card-img-top row_item_img" alt="animePoster">
+                        <div class="card-body">
+                          <h6 class="card-title text-center cardfont title_length">{{seasonAnime.0.title}}</h6>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 col-6 row_item">
+                    <div class="card row_item_card">
+                      <a href="/anime/description/{{seasonAnime.1.anime_id}}">
+                        <img src="{{seasonAnime.1.anime_poster}}" class="card-img-top row_item_img" alt="animePoster">
+                        <div class="card-body">
+                          <h6 class="card-title text-center cardfont title_length">{{seasonAnime.1.title}}</h6>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 col-6 row_item hidden_item">
+                    <div class="card row_item_card">
+                      <a href="/anime/description/{{seasonAnime.2.anime_id}}">
+                        <img src="{{seasonAnime.2.anime_poster}}" class="card-img-top row_item_img" alt="animePoster">
+                        <div class="card-body">
+                          <h6 class="card-title text-center cardfont title_length">{{seasonAnime.2.title}}</h6>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 col-6 row_item hidden_item">
+                    <div class="card row_item_card">
+                      <a href="/anime/description/{{seasonAnime.3.anime_id}}">
+                        <img src="{{seasonAnime.3.anime_poster}}" class="card-img-top row_item_img" alt="animePoster">
+                        <div class="card-body">
+                          <h6 class="card-title text-center cardfont title_length">{{seasonAnime.3.title}}</h6>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="carousel-item">
+                <div class="row main_row">
+                  <div class="col-sm-3 col-6 row_item">
+                    <div class="card row_item_card">
+                      <a href="/anime/description/{{seasonAnime.4.anime_id}}">
+                        <img src="{{seasonAnime.4.anime_poster}}" class="card-img-top row_item_img" alt="animePoster">
+                        <div class="card-body">
+                          <h6 class="card-title text-center cardfont title_length">{{seasonAnime.4.title}}</h6>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 col-6 row_item">
+                    <div class="card row_item_card">
+                      <a href="/anime/description/{{seasonAnime.5.anime_id}}">
+                        <img src="{{seasonAnime.5.anime_poster}}" class="card-img-top row_item_img" alt="animePoster">
+                        <div class="card-body">
+                          <h6 class="card-title text-center cardfont title_length">{{seasonAnime.5.title}}</h6>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 col-6 row_item hidden_item">
+                    <div class="card row_item_card">
+                      <a href="/anime/description/{{seasonAnime.6.anime_id}}">
+                        <img src="{{seasonAnime.6.anime_poster}}" class="card-img-top row_item_img" alt="animePoster">
+                        <div class="card-body">
+                          <h6 class="card-title text-center cardfont title_length">{{seasonAnime.6.title}}</h6>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 col-6 row_item hidden_item">
+                    <div class="card row_item_card">
+                      <a href="/anime/description/{{seasonAnime.7.anime_id}}">
+                        <img src="{{seasonAnime.7.anime_poster}}" class="card-img-top row_item_img" alt="animePoster">
+                        <div class="card-body">
+                          <h6 class="card-title text-center cardfont title_length">{{seasonAnime.7.title}}</h6>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+    
+          <div class="col-1 hidden_btn">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{{!-- ------------------------------ MAIN SECTION ------------------------------ --}}
+
+<section class="mt-5 MainPageSection">
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col-lg-5 col-md-6 col-sm-12">
+        <div class="content_block height_mainpage_block">
+          <h5 class="text-start text-uppercase mb-2 ms-3">Обновления</h5><hr style="color: var(--color_3);  opacity:0.8">
+          <div class="update_row">
+            <div class="row update_block_row g-0">
+              <div class="col-1 hidden_update_img outer_block">
+                <img src="/images/fillers/errorIMG.jpg" class="img-fluid rounded inner_block">
+              </div>
+              <div class="col-11 shedule_text">
+                <strong>Шаман Кинг (2021)</strong> - Добавлена 18-я серия: Озвучка JAM CLUB. Плеер Kodik 18
+              </div>
+            </div>
+            <div class="row update_block_row g-0">
+              <div class="col-1 hidden_update_img outer_block">
+                <img src="/images/fillers/errorIMG.jpg" class="img-fluid rounded inner_block">
+              </div>
+              <div class="col-11 shedule_text">
+                <strong>Шаман Кинг (2021)</strong> - Добавлена 18-я серия: Озвучка JAM CLUB. Плеер Kodik 18
+              </div>
+            </div>
+            <div class="row update_block_row g-0">
+              <div class="col-1 hidden_update_img outer_block">
+                <img src="/images/fillers/errorIMG.jpg" class="img-fluid rounded inner_block">
+              </div>
+              <div class="col-11 shedule_text">
+                <strong>Шаман Кинг (2021)</strong> - Добавлена 18-я серия: Озвучка JAM CLUB. Плеер Kodik 18
+              </div>
+            </div>
+            <div class="row update_block_row g-0">
+              <div class="col-1 hidden_update_img outer_block">
+                <img src="/images/fillers/errorIMG.jpg" class="img-fluid rounded inner_block">
+              </div>
+              <div class="col-11 shedule_text">
+                <strong>Шаман Кинг (2021)</strong> - Добавлена 18-я серия: Озвучка JAM CLUB. Плеер Kodik 18
+              </div>
+            </div>
+            <div class="row update_block_row g-0">
+              <div class="col-1 hidden_update_img outer_block">
+                <img src="/images/fillers/errorIMG.jpg" class="img-fluid rounded inner_block">
+              </div>
+              <div class="col-11 shedule_text">
+                <strong>Шаман Кинг (2021)</strong> - Добавлена 18-я серия: Озвучка JAM CLUB. Плеер Kodik 18
+              </div>
+            </div>
+            <div class="row update_block_row g-0">
+              <div class="col-1 hidden_update_img outer_block">
+                <img src="/images/fillers/errorIMG.jpg" class="img-fluid rounded inner_block">
+              </div>
+              <div class="col-11 shedule_text">
+                <strong>Шаман Кинг (2021)</strong> - Добавлена 18-я серия: Озвучка JAM CLUB. Плеер Kodik 18
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="content_block height_mainpage_block"> 
+          <h5 class="text-start text-uppercase mb-2 ms-3">Расписание</h5><hr style="color: var(--color_3);  opacity:0.8">
+          <div class="accordion accordion_style" id="accordionExample">
+            <div class="accordion-item accordion_item_style">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed accordion_btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Понедельник
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body accordion_style">
+                  <div class="row update_block_row g-0">
+                    <div class="col-2 img_center_block">
+                      <img src="/images/fillers/errorIMG.jpg" class="img-fluid  img_center">
+                    </div>
+                    <div class="col-10 shedule_text">
+                      <p><strong>Для тебя, Бессмертный</strong> 19 серия (23 авг. 16:50)</p>
+                    </div>
+                  </div>
+                  <div class="row update_block_row g-0">
+                    <div class="col-2 img_center_block">
+                      <img src="/images/fillers/errorIMG.jpg" class="img-fluid  img_center">
+                    </div>
+                    <div class="col-10 shedule_text">
+                      <p><strong>Для тебя, Бессмертный</strong> 19 серия (23 авг. 16:50)</p> 
+                    </div>
+                  </div>
+                  <div class="row update_block_row g-0">
+                    <div class="col-2 img_center_block">
+                      <img src="/images/fillers/errorIMG.jpg" class="img-fluid  img_center">
+                    </div>
+                    <div class="col-10 shedule_text">
+                      <p><strong>Для тебя, Бессмертный</strong> 19 серия (23 авг. 16:50)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion_item_style">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed accordion_btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Вторник
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body accordion_style">
+                  <div class="row update_block_row g-0">
+                    <div class="col-2 img_center_block">
+                      <img src="/images/fillers/errorIMG.jpg" class="img-fluid  img_center">
+                    </div>
+                    <div class="col-10 shedule_text">
+                      <p><strong>Для тебя, Бессмертный</strong> 19 серия (23 авг. 16:50)</p>
+                    </div>
+                  </div>
+                  <div class="row update_block_row g-0">
+                    <div class="col-2 img_center_block">
+                      <img src="/images/fillers/errorIMG.jpg" class="img-fluid  img_center">
+                    </div>
+                    <div class="col-10 shedule_text">
+                      <p><strong>Для тебя, Бессмертный</strong> 19 серия (23 авг. 16:50)</p> 
+                    </div>
+                  </div>
+                  <div class="row update_block_row g-0">
+                    <div class="col-2 img_center_block">
+                      <img src="/images/fillers/errorIMG.jpg" class="img-fluid  img_center">
+                    </div>
+                    <div class="col-10 shedule_text">
+                      <p><strong>Для тебя, Бессмертный</strong> 19 серия (23 авг. 16:50)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion_item_style">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed accordion_btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Среда
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body accordion_style">
+                  <div class="row update_block_row g-0">
+                    <div class="col-2 img_center_block">
+                      <img src="/images/fillers/errorIMG.jpg" class="img-fluid  img_center">
+                    </div>
+                    <div class="col-10 shedule_text">
+                      <p><strong>Для тебя, Бессмертный</strong> 19 серия (23 авг. 16:50)</p>
+                    </div>
+                  </div>
+                  <div class="row update_block_row g-0">
+                    <div class="col-2 img_center_block">
+                      <img src="/images/fillers/errorIMG.jpg" class="img-fluid  img_center">
+                    </div>
+                    <div class="col-10 shedule_text">
+                      <p><strong>Для тебя, Бессмертный</strong> 19 серия (23 авг. 16:50)</p> 
+                    </div>
+                  </div>
+                  <div class="row update_block_row g-0">
+                    <div class="col-2 img_center_block">
+                      <img src="/images/fillers/errorIMG.jpg" class="img-fluid  img_center">
+                    </div>
+                    <div class="col-10 shedule_text">
+                      <p><strong>Для тебя, Бессмертный</strong> 19 серия (23 авг. 16:50)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion_item_style">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed accordion_btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Четверг
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body accordion_style">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic debitis cupiditate nesciunt! Quisquam inventore maiores doloremque, iusto esse doloribus enim a facere autem eos dicta quasi minus officiis perferendis placeat.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion_item_style">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed accordion_btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  Пятница
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body accordion_style">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium facere nihil deleniti vitae veniam sunt minima eligendi similique quia distinctio porro error, eius exercitationem. Sit non accusantium omnis expedita nulla.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion_item_style">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed accordion_btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  Суббота
+                </button>
+              </h2>
+              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body accordion_style">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam nostrum tenetur quisquam rem blanditiis minus nam a consequuntur? Reprehenderit itaque odit nostrum provident, sed est temporibus consequatur totam! Numquam, eligendi?
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion_item_style">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed accordion_btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  Воскресенье
+                </button>
+              </h2>
+              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body accordion_style">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, necessitatibus facere ab porro cumque nemo deserunt, quia nostrum neque blanditiis aperiam laborum consectetur recusandae at, quae obcaecati cum! Iusto, quasi.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{> filter}}
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="content_block height_mainpage_block">
+          <h5 class="text-start text-uppercase mb-2 ms-3">Новости</h5><hr style="color: var(--color_3);  opacity:0.8">
+          <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-1 g-4 main_news">
+            <div class="col">
+              <div class="card main_news_style">
+                <img src="/images/fillers/errorIMG2.jpg" class="card-img-top img-fluid img_news_style">
+                <div class="card-body">
+                  <h5 class="card-title">Название карточки</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card main_news_style">
+                <img src="/images/fillers/errorIMG2.jpg" class="card-img-top img_news_style">
+                <div class="card-body">
+                  <h5 class="card-title">Название карточки</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card main_news_style">
+                <img src="/images/fillers/errorIMG2.jpg" class="card-img-top img_news_style">
+                <div class="card-body">
+                  <h5 class="card-title">Название карточки</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card main_news_style">
+                <img src="/images/fillers/errorIMG2.jpg" class="card-img-top img_news_style">
+                <div class="card-body">
+                  <h5 class="card-title">Название карточки</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card main_news_style">
+                <img src="/images/fillers/errorIMG2.jpg" class="card-img-top img_news_style">
+                <div class="card-body">
+                  <h5 class="card-title">Название карточки</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card main_news_style">
+                <img src="/images/fillers/errorIMG2.jpg" class="card-img-top img_news_style">
+                <div class="card-body">
+                  <h5 class="card-title">Название карточки</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card main_news_style">
+                <img src="/images/fillers/errorIMG2.jpg" class="card-img-top img_news_style">
+                <div class="card-body">
+                  <h5 class="card-title">Название карточки</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card main_news_style">
+                <img src="/images/fillers/errorIMG2.jpg" class="card-img-top img_news_style">
+                <div class="card-body">
+                  <h5 class="card-title">Название карточки</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

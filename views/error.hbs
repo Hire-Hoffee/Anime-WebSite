@@ -1,0 +1,20 @@
+{{!-- <h1>{{message}}</h1>
+<h2>{{error.status}}</h2>
+<pre>{{error.stack}}</pre> --}}
+ 
+
+<div class="container content_block">
+  <div class="row error_div">
+    <div class="col-md-6">
+      <h1 class="text-center mb-4">(｡•́︿•̀｡)</h1>
+      <h3 class="text-center mb-4">Произошла ошибка</h3>
+      <h5 class="text-center mb-5"><a href="/main" class="links">Вернуться на главную</a></h5>
+      {{#if message}}
+      <h5 class="text-center mb-5">{{message}}</h5>
+      {{/if}}
+    </div>
+    <div class="col-md-6">
+      <img src="/images/fillers/errorIMG4.png" class="img-fluid error_img" alt="error">
+    </div>
+  </div>
+</div>

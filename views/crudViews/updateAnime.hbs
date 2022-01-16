@@ -1,0 +1,189 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      {{#if success}}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{success}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/if}}
+
+      {{#if fail}}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{fail}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/if}}
+    </div>
+    <div class="col-md-7"></div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <form method="POST">
+      <div class="row mb-5">
+        <div class="col-12">
+          <h5 class="text-start text-uppercase mb-2 ms-3 crudTitle">Обновить аниме</h5>
+          <hr style="color: var(--color_3);  opacity:0.8">
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-5">
+          <label class="form-label">Название</label>
+          <input class="form-control" value="{{anime.0.title}}" name="title" maxlength="100" required>
+        </div>
+        <div class="col-md-1">
+          <label class="form-label">Рейтинг</label>
+          <input class="form-control" value="{{anime.0.rating}}" name="rating">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Студия</label>
+          <input class="form-control" value="{{anime.0.studio}}" maxlength="25" name="studio" required>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Режиссёр</label>
+          <select class="form-select" name="director_id_old" hidden>
+            <option value="{{director.0.director_id}}">{{director.0.director_name}}</option>
+          </select>
+          <select class="form-select" name="director_id">
+            <option value="{{director.0.director_id}}">{{director.0.director_name}}</option>
+            {{#each allDirectors}}<option value="{{this.director_id}}">{{this.director_name}}</option>{{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-4">
+          <label class="form-label">Тип</label>
+          
+          <select class="form-select" name="anime_type">
+            <option value="{{anime.0.anime_type}}" >{{anime.0.anime_type}}</option>
+            <option value="Полнометражный фильм">Полнометражный фильм</option>
+            <option value="Сериал">Сериал</option>
+            <option value="OVA">OVA</option>
+            <option value="ONA">ONA</option>
+          </select>
+          </div>
+        <div class="col-md-1">
+          <label class="form-label">Возр. огр.</label>
+          <input class="form-control" value="{{anime.0.age_permission}}" name="age_permission" maxlength="10" required>
+          </div>
+        <div class="col-md-3">
+          <label class="form-label">Статус</label>
+          <select class="form-select" name="anime_status">
+            <option value="{{anime.0.anime_status}}" >{{anime.0.anime_status}}</option>
+            <option value="Вышло">Вышло</option>
+            <option value="Онгоинг">Онгоинг</option>
+            <option value="Анонс">Анонс</option>
+          </select>
+          </div>
+        <div class="col-md-1">
+          <label class="form-label">Эпизодов</label>
+          <input class="form-control" value="{{anime.0.episodes}}" name="episodes" type="number" min="1" max="1000">
+          </div>
+        <div class="col-md-3">
+          <label class="form-label">Продолжительность</label>
+          <input class="form-control" value="{{anime.0.duration}}" name="duration" maxlength="20" required>
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-3">
+          <label class="form-label">Дата начала</label>
+          <input class="form-control" name="date_start" value="{{anime.0.date_start}}" type="date" required>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Дата конца</label>
+          <input class="form-control" name="date_end" value="{{anime.0.date_end}}" type="date">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Жанр 1</label>
+          <select class="form-select" name="genre_id_1_old" hidden>
+            <option  value="{{genre.0.genre_id}}">{{genre.0.anime_genre}}</option>
+          </select>
+          <select class="form-select" name="genre_id_1">
+            <option value="{{genre.0.genre_id}}" >{{genre.0.anime_genre}}</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+
+          <label class="form-label mt-2">Жанр 2</label>
+           <select class="form-select" name="genre_id_2_old" hidden>
+            <option  value="{{genre.1.genre_id}}">{{genre.1.anime_genre}}</option>
+          </select>
+          <select class="form-select" name="genre_id_2">
+            <option value="{{genre.1.genre_id}}" >{{genre.1.anime_genre}}</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+
+          <label class="form-label mt-2">Жанр 3</label>
+          <select class="form-select" name="genre_id_3_old" hidden>
+            <option  value="{{genre.2.genre_id}}">{{genre.2.anime_genre}}</option>
+          </select>
+          <select class="form-select" name="genre_id_3">
+            <option value="{{genre.2.genre_id}}" >{{genre.2.anime_genre}}</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Озвучка 1</label>
+          <select class="form-select" name="sound_id_1_old" hidden>
+            <option  value="{{voice.0.sound_id}}">{{voice.0.sound_name}}</option>
+          </select>
+          <select class="form-select" name="sound_id_1">
+            <option value="{{voice.0.sound_id}}" >{{voice.0.sound_name}}</option>
+            {{#each allSound}}<option value="{{this.sound_id}}">{{this.sound_name}}</option>{{/each}}
+          </select>
+
+          <label class="form-label mt-2">Озвучка 2</label>
+          <select class="form-select" name="sound_id_2_old" hidden>
+            <option value="{{voice.1.sound_id}}">{{voice.1.sound_name}}</option>
+          </select>
+          <select class="form-select" name="sound_id_2">
+            <option value="{{voice.1.sound_id}}" >{{voice.1.sound_name}}</option>
+            {{#each allSound}}<option value="{{this.sound_id}}">{{this.sound_name}}</option>{{/each}}
+          </select>
+          
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-4">
+          <label class="form-label">Постер (ссылка)</label>
+          <input class="form-control form-control-sm mb-1" value="{{anime.0.anime_poster}}" name="anime_poster" maxlength="100" disabled>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Трейлер (ссылка)</label>
+          <input class="form-control" value="{{anime.0.anime_trailer}}" name="anime_trailer" maxlength="100">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Видео (ссылка)</label>
+          <input class="form-control" value="{{animeVideo.0.video_link}}" name="video_link" maxlength="100">
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-4">
+          <label class="form-label">Главные герои</label>
+          <input class="form-control" value="{{mainchar.0.character_id}}" name="character_id_1_old" hidden>
+          <input class="form-control" value="{{mainchar.0.char_name}}" name="char_name_1">
+          <input class="form-control" value="{{mainchar.1.character_id}}" name="character_id_2_old" hidden>
+          <input class="form-control mt-2" value="{{mainchar.1.char_name}}" name="char_name_2">
+          <input class="form-control" value="{{mainchar.2.character_id}}" name="character_id_3_old" hidden>
+          <input class="form-control mt-2" value="{{mainchar.2.char_name}}" name="char_name_3">
+        </div>
+        <div class="col-md-1">
+          <label class="form-label">Просмотры</label>
+          <input class="form-control" value="{{anime.0.views}}" name="views">
+        </div>
+        <div class="col-md-7">
+          <label class="form-label">Описание</label>
+          <textarea class="form-control" value="{{anime.0.episodes}}" style="height: 150px" name="anime_description" maxlength="1000">{{anime.0.anime_description}}</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+          <button class="btn search_filter_btn" type="submit">Обновить</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

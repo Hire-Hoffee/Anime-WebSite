@@ -1,0 +1,188 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      {{#if success}}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{success}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/if}}
+
+      {{#if fail}}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{fail}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/if}}
+    </div>
+    <div class="col-md-7"></div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <form method="POST" enctype="multipart/form-data">
+      <div class="row mb-5">
+        <div class="col-12">
+          <h5 class="text-start text-uppercase mb-2 ms-3 crudTitle">Создать аниме</h5>
+          <hr style="color: var(--color_3);  opacity:0.8">
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-5">
+          <label class="form-label">Название</label>
+          <input class="form-control" name="title" maxlength="100" required>
+        </div>
+        <div class="col-md-1">
+          <label class="form-label">Рейтинг</label>
+          <input class="form-control" name="raiting">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Студия</label>
+          <input class="form-control" maxlength="25" name="studio" required>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Режиссёр</label>
+          <select class="form-select" name="director_id" required>
+            <option selected disabled>Выберите режиссёра</option>
+            {{#each allDirectors}}<option value="{{this.director_id}}">{{this.director_name}}</option>{{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-4">
+          <label class="form-label">Тип</label>
+          <select class="form-select" name="anime_type" required>
+            <option selected disabled>Выберите тип</option>
+            <option value="Полнометражный фильм">Полнометражный фильм</option>
+            <option value="Сериал">Сериал</option>
+            <option value="OVA">OVA</option>
+            <option value="ONA">ONA</option>
+          </select>
+          </div>
+        <div class="col-md-1">
+          <label class="form-label">Возр. огр.</label>
+          <input class="form-control" name="age_permission" maxlength="10" required>
+          </div>
+        <div class="col-md-2">
+          <label class="form-label">Статус</label>
+          <select class="form-select" name="anime_status">
+            <option selected disabled>Выберите статус</option>
+            <option value="Вышло">Вышло</option>
+            <option value="Онгоинг">Онгоинг</option>
+            <option value="Анонс">Анонс</option>
+          </select>
+          </div>
+        <div class="col-md-1">
+          <label class="form-label">Эпизодов</label>
+          <input class="form-control" name="episodes" type="number" min="1" max="1000">
+          </div>
+        <div class="col-md-2">
+          <label class="form-label">Продолжительность</label>
+          <input class="form-control" name="duration" maxlength="20" required>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Сезон</label>
+          <select class="form-select" name="season_of_the_year" required>
+            <option selected disabled>Выберите сезон</option>
+            <option value="Зима">Зима</option>
+            <option value="Весна">Весна</option>
+            <option value="Лето">Лето</option>
+            <option value="Осень">Осень</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-3">
+          <label class="form-label">Дата начала</label>
+          <input class="form-control" name="date_start" type="date" required>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Дата завершения</label>
+          <input class="form-control" name="date_end" type="date">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Жанр 1</label>
+          <select class="form-select" name="genre_id_1">
+            <option selected disabled>Выберите жанр</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+
+          <label class="form-label mt-2">Жанр 2</label>
+          <select class="form-select" name="genre_id_2">
+            <option selected disabled>Выберите жанр</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+          
+          <label class="form-label mt-2">Жанр 3</label>
+          <select class="form-select" name="genre_id_3">
+            <option selected disabled>Выберите жанр</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Озвучка 1</label>
+          <select class="form-select" name="sound_id_1">
+            <option selected disabled>Выберите озвучку</option>
+            {{#each allSound}}<option value="{{this.sound_id}}">{{this.sound_name}}</option>{{/each}}
+          </select>
+
+          <label class="form-label mt-2">Озвучка 2</label>
+          <select class="form-select" name="sound_id_2">
+            <option selected disabled>Выберите озвучку</option>
+            {{#each allSound}}<option value="{{this.sound_id}}">{{this.sound_name}}</option>{{/each}}
+          </select>
+          
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-3">
+          <label class="form-label">Постер (ссылка)</label>
+          <input class="form-control" name="AnimePoster" type="file"  maxlength="100">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Трейлер (ссылка)</label>
+          <input class="form-control" name="anime_trailer" maxlength="100">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Изображения (ссылка)</label>
+          <input class="form-control" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Видео (ссылка)</label>
+          <input class="form-control" name="video_link" maxlength="100">
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-4">
+          <label class="form-label">Главные герои</label>
+          <input class="form-control" name="char_name_1">
+          <input class="form-control mt-2" name="char_name_2">
+          <input class="form-control mt-2" name="char_name_3">
+        </div>
+        <div class="col-md-1">
+          <label class="form-label">Просмотры</label>
+          <input class="form-control" name="views">
+        </div>
+        <div class="col-md-7">
+          <label class="form-label">Описание</label>
+          <textarea class="form-control" style="height: 150px" name="anime_description" maxlength="1500"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+          <button class="btn search_filter_btn" type="submit">Создать</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

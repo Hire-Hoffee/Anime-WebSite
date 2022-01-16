@@ -1,0 +1,27 @@
+<section>
+  {{#each user}}
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-3 mb-5 blk">
+          <img src="/images/usersAvatars/{{user_avatar}}" class="img-fluid img_avatar" alt="user avatar">
+      </div>
+
+      <div class="col-md-8 ms-md-auto">
+        <div class="content_block_1">
+          <h4 class="text-start anime_title_h4">{{this.user_name}}</h4>
+          <hr style="color: var(--color_3);  opacity:0.8">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Почта:</strong> {{this.user_email}}</li>
+            <li class="list-group-item"><strong>Дата регистрации:</strong> <span class="user-regist-date">{{this.regist_date}}</span></li>
+            <li class="list-group-item"><strong>Пол:</strong> {{this.user_sex}}</li>
+            <li class="list-group-item"><strong>Возраст:</strong> {{this.user_age}}</li>
+            <li class="list-group-item"><a href="/users/{{this.user_id}}/favorites" class="links">Избранное аниме</a></li>
+            <li class="list-group-item"><a href="/users/{{this.user_id}}/comments" class="links">Ваши комментарии</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</section>

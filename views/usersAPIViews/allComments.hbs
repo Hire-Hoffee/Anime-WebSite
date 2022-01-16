@@ -1,0 +1,35 @@
+
+<div class="container">
+  {{#if comments}}
+    {{#each comments}}
+      <div class="row mb-4 div-comment div-all-comments content_block_1">
+        <form method="post">
+          <input type="hidden" name="user_id" value="{{this.user_id}}">
+          <input type="hidden" name="anime_id" value="{{this.anime_id}}">
+          <input type="hidden" name="date_added" value="{{this.date_added}}">
+          <button type="submit" class="btn-close btn-close-white comm-delete-btn" aria-label="Close"></button>
+        </form>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-auto">
+              <p class="user-name-comm" style="color: var(--color_2);"><strong>Имя:</strong> {{this.user_name}}</p>
+            </div>
+            <div class="col-auto">
+              <p class="user-name-comm-date"><strong>Аниме:</strong> {{this.title}}</p>
+            </div>
+            <div class="col-auto">
+              <p class="user-name-comm-date"><strong>Дата:</strong> {{this.date_added}}</p>
+            </div>
+            <hr style="color: var(--color_3);  opacity:0.8; width: 80%;">
+            <div class="col-12">
+              <h6><strong>Комментарий:</strong></h6>
+              <p>{{this.user_comment}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  {{else}}
+    <h3>Нет комментариев :(</h3>
+  {{/if}}
+</div>
