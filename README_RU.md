@@ -1,5 +1,7 @@
 # Аниме веб-сайт
 
+#### Ссылка на сайт [AnimeArea](https://animearea.herokuapp.com/main/).
+
 <br>
 <div style="text-align:center">
   <img src="./images_readme/main_page.png" width="1000"/>
