@@ -54,6 +54,6 @@ exports.userHandler = {
   WHERE anime_rating.anime_id = ?)
   WHERE (anime.anime_id = ?);`,
 
-  checkRating: `SELECT * FROM animedb.anime_rating
+  checkRating: `SELECT * FROM anime_rating
   WHERE anime_id = ? AND user_id = ?;`
 };
