@@ -6,10 +6,10 @@ require('dotenv').config()
 
 const pool = mysql.createPool({
   connectionLimit: process.env.DB_LIMIT,
-  host: 'us-cdbr-east-05.cleardb.net',
-  user: 'b1f3e83db74655',
-  database: 'heroku_fdcabc02871db7d',
-  password: 'a71b00a0',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
 });
 
 pool.getConnection((err, conn) => {
