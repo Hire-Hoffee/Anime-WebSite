@@ -42,6 +42,9 @@ app.use('/anime', crudRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 
+app.get("/", (req, res) => {
+  res.redirect("/main")
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
