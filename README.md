@@ -2,7 +2,7 @@
 
 #### Russian-language [README](https://github.com/Hire-Hoffee/Anime-WebSite/blob/main/README_RU.md).
 
-#### Link to website [AnimeArea](https://animearea.herokuapp.com/main/).
+#### Link to website [AnimeArea](animesite.onrender.com).
 
 <br>
 <div style="text-align:center">

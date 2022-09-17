@@ -1,6 +1,6 @@
 # Аниме веб-сайт
 
-#### Ссылка на сайт [AnimeArea](https://animearea.herokuapp.com/main/).
+#### Ссылка на сайт [AnimeArea](animesite.onrender.com).
 
 <br>
 <div style="text-align:center">
