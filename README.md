@@ -6,8 +6,8 @@
 
 <br>
 <div style="text-align:center">
-  <img src="./images_readme/main_page.png" width="1000"/>
-  <img src="./images_readme/catalog.png" width="1000"/>
+  <img src="https://i.imgur.com/zfn9rht.png" width="1000"/>
+  <img src="https://i.imgur.com/PhsboHD.png" width="1000"/>
 </div>
 <br>
 
@@ -16,6 +16,7 @@
 On this site you can **view**, **comment**, **rate** anime.
 
 #### Main pages of the site
+
 - Main page at `/main`
 - Catalog of all anime works at `/main/catalog`
 - An anime description page at `/anime/description/[anime_id]`
@@ -25,8 +26,8 @@ On this site you can **view**, **comment**, **rate** anime.
 Further on this site the possibility of **registration** with subsequent **authentication** and **authorization** is implemented.
 
 <div style="text-align:center">
-  <img src="./images_readme/registration.png" width="550"/>
-  <img src="./images_readme/login.png" width="550"/>
+  <img src="https://i.imgur.com/WPB5LOi.png" width="550"/>
+  <img src="https://i.imgur.com/00bCjPj.png" width="550"/>
 </div>
 <br>
 <br>
@@ -34,8 +35,8 @@ Further on this site the possibility of **registration** with subsequent **authe
 After the login procedure, you have the opportunity to **rate**, **leave comments**, as well as **add anime** to "favourites" and/or "watched".
 
 <div style="text-align:center">
-  <img src="./images_readme/description.png" width="550"/>
-  <img src="./images_readme/descr_comments.png" width="550"/>
+  <img src="https://i.imgur.com/brafpi7.png" width="550"/>
+  <img src="https://i.imgur.com/2EUPe8k.png" width="550"/>
 </div>
 <br>
 <br>
@@ -43,8 +44,8 @@ After the login procedure, you have the opportunity to **rate**, **leave comment
 Your comments and favorite anime can be viewed in the personal section of the site (account), where you can **delete written comments**.
 
 <div style="text-align:center">
-  <img src="./images_readme/account.png" width="550"/>
-  <img src="./images_readme/your_comments.png" width="550"/>
+  <img src="https://i.imgur.com/ILxRjNl.png" width="550"/>
+  <img src="https://i.imgur.com/6ESzTo6.png" width="550"/>
 </div>
 <br>
 <br>
@@ -52,8 +53,7 @@ Your comments and favorite anime can be viewed in the personal section of the si
 The site implements a **search** for Japanese animation by name, or by certain parameters in the **filter**. You can also go to the "Top 100" page, which shows the top rated anime and the "Random anime" page, which is a link to a page with a description of the random anime available on the site.
 
 <div style="text-align:center">
-  <img src="./images_readme/search.png" width="550"/>
-  <img src="./images_readme/your_comments.png" width="550"/>
+  <img src="https://i.imgur.com/meSzSQD.png" width="550"/>
 </div>
 <br>
 <br>
@@ -61,10 +61,10 @@ The site implements a **search** for Japanese animation by name, or by certain p
 Also, to manage users and anime works on the site, there is an administrative panel at `/admin`, available only to users with site administrator privileges.
 
 <div style="text-align:center">
-  <img src="./images_readme/adminPanel.png" width="550"/>
-  <img src="./images_readme/animeHandle.png" width="550"/>
-  <img src="./images_readme/createAnime.png" width="550"/>
-  <img src="./images_readme/usersHandle.png" width="550"/>
+  <img src="https://i.imgur.com/HdNswZP.png" width="550"/>
+  <img src="https://i.imgur.com/hNfeyM5.png" width="550"/>
+  <img src="https://i.imgur.com/K3uiGKi.png" width="550"/>
+  <img src="https://i.imgur.com/qOZdlHs.png" width="550"/>
 </div>
 <br>
 <br>
@@ -72,6 +72,7 @@ Also, to manage users and anime works on the site, there is an administrative pa
 ## Technologies used in the development of the site
 
 #### The following frameworks and technologies were used for the frontend part
+
 - HTML/CSS/JS
 - Bootstrap
 - jquery
@@ -79,6 +80,7 @@ Also, to manage users and anime works on the site, there is an administrative pa
 The site is responsive and is available for comfortable viewing on devices with different screen sizes.
 
 #### The following frameworks and technologies were used for the backend part
+
 - Node.js
 - express.js
 - MySQL
@@ -201,9 +203,9 @@ module.exports = {
           </div>
         </div>
       </div>
-      
+
       {{> filter}}
-      
+
     </div>
   </div>
 </section>
@@ -307,20 +309,19 @@ The **accessToken** and **refreshToken** configuration is in the `./config/token
 
 ```javascript
 // JWT tokens configuration for authorization and authentication
-const jwt = require('jsonwebtoken');
-require('dotenv').config()
-
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 module.exports = {
   generateAccessToken: (user) => {
-    const token = jwt.sign(user, process.env.SECRET_ACCESS, {expiresIn: '15m'});
+    const token = jwt.sign(user, process.env.SECRET_ACCESS, { expiresIn: "15m" });
     return token;
   },
   generateRefreshToken: (user) => {
-    const token = jwt.sign(user, process.env.SECRET_REFRESH, {expiresIn: '72h'});
+    const token = jwt.sign(user, process.env.SECRET_REFRESH, { expiresIn: "72h" });
     return token;
-  }
-}
+  },
+};
 ```
 
 The logic of building authentication is similar to the previous paragraphs. The main features are in the controller `./usersAPI/usersControllers.js`, in the login method of the site. The `loginPost` method checks if the entered user data matches the data in the database. If the entered data is correct, the user is assigned **accessToken** and **refreshToken** which are stored in the cookie and the database, respectively.
@@ -396,7 +397,7 @@ module.exports = {
     if (token) {
       token = token.split(' ')[1];
       jwt.verify(token, process.env.SECRET_ACCESS, (err, result) => {
-        
+
         if (err) {
 
           const user_id = req.signedCookies.userId;

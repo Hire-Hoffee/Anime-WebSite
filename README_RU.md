@@ -4,16 +4,17 @@
 
 <br>
 <div style="text-align:center">
-  <img src="./images_readme/main_page.png" width="1000"/>
-  <img src="./images_readme/catalog.png" width="1000"/>
+ <img src="https://i.imgur.com/zfn9rht.png" width="1000"/>
+  <img src="https://i.imgur.com/PhsboHD.png" width="1000"/>
 </div>
 <br>
 
 ## Функционал сайта
 
-На данном сайте вы можете **просматривать**, **комментировать**, **оценивать** аниме. 
+На данном сайте вы можете **просматривать**, **комментировать**, **оценивать** аниме.
 
 #### Основные страницы сайта
+
 - Главная страница по адресу `/main`
 - Каталог всех аниме произведений по адресу `/main/catalog`
 - Страница для просмотра с описанием аниме по адресу `/anime/description/[anime_id]`
@@ -23,8 +24,8 @@
 Далее на этом сайте реализована возможность **регистрации** с последующей **аутентификацией** и **авторизацией**.
 
 <div style="text-align:center">
-  <img src="./images_readme/registration.png" width="550"/>
-  <img src="./images_readme/login.png" width="550"/>
+  <img src="https://i.imgur.com/WPB5LOi.png" width="550"/>
+  <img src="https://i.imgur.com/00bCjPj.png" width="550"/>
 </div>
 <br>
 <br>
@@ -32,8 +33,8 @@
 После процедуры входа у вас есть возможность **ставить оценку**, **оставлять комментарии**, а также **добавлять произведения** в "избранное" и/или "просмотренное".
 
 <div style="text-align:center">
-  <img src="./images_readme/description.png" width="550"/>
-  <img src="./images_readme/descr_comments.png" width="550"/>
+   <img src="https://i.imgur.com/brafpi7.png" width="550"/>
+  <img src="https://i.imgur.com/2EUPe8k.png" width="550"/>
 </div>
 <br>
 <br>
@@ -41,8 +42,8 @@
 Ваши комментарии и избранное аниме можно посмотреть в личном разделе сайта (аккаунте), там же можно **удалить написанные комментарии**.
 
 <div style="text-align:center">
-  <img src="./images_readme/account.png" width="550"/>
-  <img src="./images_readme/your_comments.png" width="550"/>
+ <img src="https://i.imgur.com/ILxRjNl.png" width="550"/>
+  <img src="https://i.imgur.com/6ESzTo6.png" width="550"/>
 </div>
 <br>
 <br>
@@ -50,8 +51,7 @@
 На сайте реализован **поиск** японской мультипликации по названию, либо по определенным параметрам в **фильтре**. Ещё вы можете перейти на страницу "Топ 100", где представлены топ аниме по рейтингу и на страницу "Случайное аниме", которая является ссылкой на страницу с описанием случайного аниме доступного на сайте.
 
 <div style="text-align:center">
-  <img src="./images_readme/search.png" width="550"/>
-  <img src="./images_readme/your_comments.png" width="550"/>
+ <img src="https://i.imgur.com/meSzSQD.png" width="550"/>
 </div>
 <br>
 <br>
@@ -59,10 +59,10 @@
 Также для управления пользователями и аниме произведениями на сайте присутствует административная панель по адресу `/admin`, доступная только пользователям с привилегиями администратора сайта.
 
 <div style="text-align:center">
-  <img src="./images_readme/adminPanel.png" width="550"/>
-  <img src="./images_readme/animeHandle.png" width="550"/>
-  <img src="./images_readme/createAnime.png" width="550"/>
-  <img src="./images_readme/usersHandle.png" width="550"/>
+  <img src="https://i.imgur.com/HdNswZP.png" width="550"/>
+  <img src="https://i.imgur.com/hNfeyM5.png" width="550"/>
+  <img src="https://i.imgur.com/K3uiGKi.png" width="550"/>
+  <img src="https://i.imgur.com/qOZdlHs.png" width="550"/>
 </div>
 <br>
 <br>
@@ -70,6 +70,7 @@
 ## Технологии использованные при разработке сайта
 
 #### Для frontend части были использованы следующие фреймворки и технологии
+
 - HTML/CSS/JS
 - Bootstrap
 - jQuery
@@ -77,6 +78,7 @@
 Сайт является адаптивным и доступен для комфортного просмотра на устройствах с разными размерами экранов.
 
 #### Для backend части были использованы следующие фреймворки и технологии
+
 - Node.js
 - Express.js
 - MySQL
@@ -89,16 +91,15 @@
 
 Логика будет рассмотрена на примере получения и вывода всего аниме доступного на сайте для просмотра.
 
-Информация об аниме храниться в базе данных. 
+Информация об аниме храниться в базе данных.
 
 Подключение к базе данных происходит из файла `./config/dbConnection.js` и последующим импортом этого файла из `./models/mainModel.js`.
 
 ```javascript
 // DB configuration
 // Parameters are taken from .env file
-const mysql = require('mysql2');
-require('dotenv').config()
-
+const mysql = require("mysql2");
+require("dotenv").config();
 
 const pool = mysql.createPool({
   connectionLimit: process.env.DB_LIMIT,
@@ -112,9 +113,9 @@ pool.getConnection((err, conn) => {
   if (err) {
     console.log(err);
   } else {
-    console.log('Database connected');
+    console.log("Database connected");
   }
-})
+});
 
 module.exports = pool;
 ```
@@ -123,7 +124,7 @@ module.exports = pool;
 
 ```javascript
 // Model for anime handling
-const pool = require('../config/dbConnection'); // DB config import 
+const pool = require('../config/dbConnection'); // DB config import
 const SQL_Logic = require('./SQL_Logic');
 
 // Methods, exported to mainController
@@ -199,9 +200,9 @@ module.exports = {
           </div>
         </div>
       </div>
-      
+
       {{> filter}}
-      
+
     </div>
   </div>
 </section>
@@ -305,20 +306,19 @@ module.exports = {
 
 ```javascript
 // JWT tokens configuration for authorization and authentication
-const jwt = require('jsonwebtoken');
-require('dotenv').config()
-
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 module.exports = {
   generateAccessToken: (user) => {
-    const token = jwt.sign(user, process.env.SECRET_ACCESS, {expiresIn: '15m'});
+    const token = jwt.sign(user, process.env.SECRET_ACCESS, { expiresIn: "15m" });
     return token;
   },
   generateRefreshToken: (user) => {
-    const token = jwt.sign(user, process.env.SECRET_REFRESH, {expiresIn: '72h'});
+    const token = jwt.sign(user, process.env.SECRET_REFRESH, { expiresIn: "72h" });
     return token;
-  }
-}
+  },
+};
 ```
 
 Логика построения аутентификации схожа с предыдущими пунктами. Основные особенности находятся в контроллере `./usersAPI/usersControllers.js`, в методе входа на сайт. Метод `loginPost` проверяет на соответствие введенные данные пользователя с данными в базе данных. Если введенные данные верны пользователю присваиваются **accessToken** и **refreshToken** которые сохраняются в cookie и базу данных соответственно.
@@ -394,7 +394,7 @@ module.exports = {
     if (token) {
       token = token.split(' ')[1];
       jwt.verify(token, process.env.SECRET_ACCESS, (err, result) => {
-        
+
         if (err) {
 
           const user_id = req.signedCookies.userId;
@@ -488,7 +488,7 @@ router.get('/', userAuth.checkToken, userAuth.isAdmin, adminController.adminPane
 
 ## Запуск приложения
 
-Для того чтобы запустить приложение клонируйте репозиторий при помощи `git clone`. 
+Для того чтобы запустить приложение клонируйте репозиторий при помощи `git clone`.
 
 Далее вы должны создать базу данных, либо экспортировать базу данных использованную в этом проекте в файле `/DB_backup/Backup/AnimeSiteDB_Backup.sql`. Для подключения к БД как и для формирования JWT используются переменные окружения, вы можете определить их в файле `.env` или задать эти параметры напрямую.
 
