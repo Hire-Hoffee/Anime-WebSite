@@ -1,6 +1,6 @@
 # Аниме веб-сайт
 
-#### Ссылка на сайт [AnimeArea](animesite.onrender.com).
+#### Ссылка на сайт [AnimeArea](http://petanimearea.freemyip.com).
 
 <br>
 <div style="text-align:center">

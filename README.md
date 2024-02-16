@@ -2,8 +2,7 @@
 
 #### Russian-language [README](https://github.com/Hire-Hoffee/Anime-WebSite/blob/main/README_RU.md).
 
-#### Link to website [AnimeArea](animesite.onrender.com).
-#### Another link to website [AnimeArea](http://178.57.218.89:7002/main).
+#### Link to website [AnimeArea](http://petanimearea.freemyip.com).
 
 <br>
 <div style="text-align:center">
