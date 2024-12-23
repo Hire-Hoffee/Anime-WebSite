@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  site:
+    image: anime-website
+    container_name: anime-website-container
+    build:
+      context: .
+    ports:
+      - "7002:7002"
+    deploy:
+      resources:
+        limits:
+          memory: 120M
+    restart: on-failure
